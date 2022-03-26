@@ -152,15 +152,7 @@ router.get("/inventory", withAuth, async (req, res) => {
     let genres = genreData.map((genre) => genre.get({ plain: true }));
 
     let whereClause = {};
-
-    // if(req.query?.rating) {
-    //   whereClause.rating = req.query.rating;
-    // } else if (req.query?.genre) {
-    //   whereClause.genre = req.query.genre;
-    // }
-    // if (req.query?.rating && req.query?.genre) {
-    //   whereClause.query = (req.query.rating && req.query.genre);
-    // }
+    
     if (req.query.genre) {
       whereClause.genre = req.query.genre;
     }
