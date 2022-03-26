@@ -1,0 +1,55 @@
+header {
+  text-align: center;
+}
+
+main {
+  background-color: #58c3c4;
+  padding: 0 0 15px 0;
+}
+
+footer {
+  text-align: center;
+  text-decoration: none;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.comment-body {
+  height: 120px;
+  width: 590px;
+}
+
+.inv-head {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.mbs-body {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mbs-header {
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* book inventory css */
+.book-card:hover {
+  transform: scale(1.1);
+}
+
+/* book details css */
+.back-to-inventory:hover {
+  transform: scale(1.1);
+}
+
+.check-out:hover {
+  transform: scale(1.2);
+}

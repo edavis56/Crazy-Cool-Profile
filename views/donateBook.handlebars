@@ -1,0 +1,109 @@
+<main class="mbs-body">
+  <form class="form" id="donate-book-form">
+    <h2>Enter information for the book you are donating:</h2>
+
+    <table style="width: 100%">
+      <tbody>
+        <tr>
+          <td><label for="isbn">ISBN:</label></td>
+          <td><input
+              class="form-input"
+              type="text"
+              id="donate-isbn"
+              onfocusout="populateForm()"
+              value="{{book.isbn}}"
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="title">Title:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="donate-title"
+              value="{{book.title}}"
+              required
+              disabled
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="author">Author:</label></td>
+          <td><input
+              style="width:400px"
+              class="form-input"
+              type="text"
+              id="donate-author"
+              value="{{book.author}}"
+              required
+              disabled
+            /></td>
+        </tr>
+        <tr>
+          <td><label for="genre">Genre:</label></td>
+          <td>
+            <select
+              class="form-input"
+              name="genres"
+              id="donate-genre"
+              {{#if book}}enabled{{else}}disabled{{/if}}
+              required
+            >
+              <option value="" {{#if book}}enabled{{else}}disabled{{/if}} selected>select a genre</option>
+              {{#each genres as |genre|}}
+                <option value="{{genre.name}}">{{genre.name}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="rating">Rating:</label></td>
+          <td>
+            <select
+              class="form-input"
+              name="ratings"
+              id="donate-rating"
+              required
+              {{#if book}}enabled{{else}}disabled{{/if}}
+            >
+              <option value="" disabled selected>select a rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="condition">Condition:</label></td>
+          <td>
+            <select
+              class="form-input"
+              name="conditions"
+              id="donate-condition"
+              {{#if book}}enabled{{else}}disabled{{/if}}
+              required
+            >
+              <option value="" disabled selected>select a condition</option>
+              {{#each conditions as |condition|}}
+                <option value="{{condition.state}}">{{condition.state}}</option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><br /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button id="donate-btn">Donate Book</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</main>
+
+<style>
+  #donate-book-form td { padding-right: 10px }
+</style>
+<script src="/js/donate.js"></script>

@@ -1,0 +1,57 @@
+<header class="display-flex justify-space-between align-center p-2">
+  <h1>My Bookshelf</h1>
+</header>
+<main class="mbs-body">
+  <div id="mbs-user-info">
+    <h2 class="mbs-header">User Information</h2>
+    <p>{{username}}</p>
+    <p>Available Books: {{availableCount}}</p>
+  </div>
+
+  <div id="mbs-donated-books">
+    <h2 class="mbs-header">Books Donated ({{donatedCount}})</h2>
+    <ul class="mbs-book-detail">
+      {{#each donatedBooks as |book|}}
+        <li>
+          <p>{{format_date book.donor_dt}}:
+            <span class="mbs-book-author">{{book.author}}</span><br />
+            <span class="mbs-book-title">{{book.title}}</span>
+          </p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div id="mbs-received-books">
+    <h2 class="mbs-header">Books Received ({{receivedCount}})</h2>
+    <ul class="mbs-book-detail">
+      {{#each receivedBooks as |book|}}
+        <li>
+          <p>{{format_date book.rec_dt}}:
+            <span class="mbs-book-author">{{book.author}}</span><br />
+            <span class="mbs-book-title">{{book.title}}</span>
+          </p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div id="mbs-rankings">
+    <h2 class="mbs-header">Ranking Data</h2>
+    <p># of books donated:
+      {{donatedCount}}
+      ({{ranking.donated.place}}
+      of
+      {{ranking.donated.totalDonors}})</p>
+    <p># of books received:
+      {{receivedCount}}
+      ({{ranking.received.place}}
+      of
+      {{ranking.received.totalReceivers}})</p>
+    <p>Average rating of books donated:
+      {{ranking.averages.donatedRatings}}
+      ({{ranking.averages.donatedPlace}}
+      of
+      {{ranking.donated.totalDonors}})</p>
+  </div>
+</main>

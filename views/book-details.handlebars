@@ -1,0 +1,27 @@
+<div class="container bg-secondary pb-1 pt-1 text-center">
+        <h1 class="text-white">Book Details</h1>
+    </div>
+
+    <div class="container mt-2">
+        <a href="./../inventory?inStock=true&noStock=true"><button class="btn btn-dark back-to-inventory"><-- Back to Inventory</button></button></a>
+    </div>
+
+    <div class="container mt-2">
+        <div class="card text-center">
+            <div class="card-header">
+              Written by: {{author}} 
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{title}}</h5>
+              <p class="card-text">{{genre}}</p>
+              <p class="card-text">Rating: {{rating}}/5</p>
+              <p class="card-text">Condition: {{book_condition}}</p>
+              {{#if stockCount}}
+              <a href="./../checkout?id={{id}}" class="btn btn-success check-out" id="check-out">Check Out</a>
+              {{/if}}
+            </div>
+            <div class="card-footer text-muted">
+              Stock: {{stockCount}}
+            </div>
+          </div>
+    </div>

@@ -1,0 +1,68 @@
+<div class="container bg-secondary pb-1 pt-1 text-center">
+        <h1 class="text-white">Book Inventory</h1>
+    </div>
+    <form id="search-parameters">
+    <div class="container bg-dark text-white mt-1 pb-1">
+        <div class="row align-items-start">
+          {{!-- <div class="col">
+            Search: <input class ="mt-2" type="text" placeholder="Title" id="search-title">
+          </div>
+          <div class="col">
+            Author: <input class ="mt-2" type="text" placeholder="Name" id="search-author">
+          </div> --}}
+          <div class="col">
+            Genre: 
+            <div>
+            <select class="mt-2" id="select-genre">
+                <option value="" disabled selected>Select Genre</option>
+                {{#each genres as |genre|}}
+                <option value="{{genre.name}}">{{genre.name}}</option>
+                {{/each}}
+            </select>
+            </div>
+          </div>
+          <div class="col">
+            Rating: 
+            <div>
+            <select class="mt-2" id="select-rating">
+                <option value="" disabled selected>Select Minimum Rating</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            </div>
+          </div>
+          <div class="col">
+            Inventory Status:
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="in-stock-box" {{#if isInStock}}checked{{/if}}>
+              <label class="form-check-label" for="flexCheckDefault">
+                In Stock
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="no-stock-box" {{#if isNoStock}}checked{{/if}}>
+              <label class="form-check-label" for="flexCheckChecked">
+                Out of Stock
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-grid gap-2 bg-dark mt-1 pb-1 pt-1">
+        <button class="btn btn-primary" id="search-bar" type="submit">Search</button>
+      </div>
+    </form>
+      <div class="container mt-1 bg-dark pt-1">
+        <div class="row">
+        {{#each books as |book|}}
+        {{> book-info book}}
+        {{/each}}
+        </div>
+      </div>
+
+      <script src="/js/inventory.js"></script>
